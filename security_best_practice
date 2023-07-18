@@ -1,0 +1,6 @@
+Javascript - DOM
+---
+- Strict user input handling
+- Preventing cross-site scripting (XSS) vulnerabilities
+- Implementing secure server-side validation and authorization
+
