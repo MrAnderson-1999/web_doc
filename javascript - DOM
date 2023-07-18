@@ -1,0 +1,434 @@
+Javascript - DOM
+---
+
+HTML Script Element:
+The <script> element is used to include or reference JavaScript code in an HTML document.
+It requires an opening and closing tag, and JavaScript code can be embedded between them.
+
+Example:
+html
+Copy code
+<script>
+  // JavaScript code goes here
+</script>
+
+
+Script Element src Attribute:
+The src attribute of the <script> element is used to specify the location of an external JavaScript file.
+The file can be local (using a relative path) or hosted elsewhere (using an absolute path).
+
+Examples:
+html
+Copy code
+<!-- Local script file -->
+<script src="./script.js"></script>
+
+<!-- External hosted script file -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+
+Script Element defer Attribute:
+The defer attribute is a boolean attribute used with the <script> tag to indicate that the script can be loaded but should not be executed until after the HTML document is fully parsed.
+It only applies to externally linked scripts (with a src attribute) and has no effect on inline scripts.
+
+Example:
+html
+Copy code
+<script src="main.js" defer></script>
+Script Element async Attribute:
+
+The async attribute is used with the <script> tag to load scripts asynchronously, allowing them to be loaded in the background without blocking the HTML parsing.
+It is particularly useful when the script does not have dependencies on other scripts or the DOM.
+Example:
+html
+Copy code
+<script src="main.js" async></script>
+
+
+Nodes in DOM Tree:
+Nodes in the DOM tree represent different elements, text, attributes, etc., and are the building blocks of the document structure.
+The root node is the top-most node in the tree, and other nodes descend from it in a hierarchical structure.
+
+Example:
+mathematica
+Copy code
+Root Node
+├── Element Node
+│   ├── Text Node
+│   ├── Element Node
+│   └── ...
+├── Text Node
+└── ...
+HTML DOM:
+
+The HTML DOM (Document Object Model) is an interface that provides a way for scripting languages (such as JavaScript) to interact with the structure and content of an HTML document.
+It represents the document as a group of objects, allowing manipulation and access to various elements and their properties.
+JavaScript can use the DOM to create dynamic HTML and perform operations on the document.
+
+
+Accessing HTML Attributes in DOM:
+The DOM nodes of type Element allow access to the same attributes available to HTML elements.
+For example, to access the id attribute of an HTML element through the DOM, you can use the appropriate property or method.
+
+Example:
+html
+Copy code
+<h1 id="heading">Welcome!</h1>
+javascript
+Copy code
+const headingElement = document.getElementById('heading');
+const idAttribute = headingElement.id; // Accessing the id attribute
+
+
+The Document Object Model (DOM):
+The DOM is a representation of a document (like an HTML page) as a group of objects.
+It acts as an interface between scripting languages and the web page's structure, allowing access and modification of the page.
+The DOM is tree-like and hierarchical, with a single top-level object (root node) and other objects branching from it.
+The DOM Parent-Child Relationship:
+
+The parent-child relationship in the DOM corresponds to the nesting structure in the HTML syntax.
+Elements nested inside the opening and closing tags of another element are considered children of that element in the DOM.
+
+Example:
+html
+Copy code
+<body>
+  <p>first child</p>
+  <p>second child</p>
+</body>
+
+
+The removeChild() Method:
+The removeChild() method is used to remove a specified child node from its parent element in the DOM.
+It is called on the parent node and takes the child node as an argument.
+
+Example:
+javascript
+Copy code
+const groceryList = document.getElementById('groceryList');
+const iceCream = document.getElementById('iceCream');
+
+groceryList.removeChild(iceCream);
+
+
+The parentNode Property:
+The parentNode property is used to access the direct parent node of an element in the DOM.
+It can be called on any node to retrieve a reference to its parent node.
+
+Example:
+html
+Copy code
+<div id="parent">
+  <p id="first-child">Some child text</p>
+  <p id="second-child">Some more child text</p>
+</div>
+javascript
+Copy code
+const firstChild = document.getElementById('first-child');
+const parent = firstChild.parentNode; // Reference to the #parent div element
+
+
+The document.createElement() Method:
+The document.createElement() method creates a new element node with the specified tag name and returns a reference to it.
+The new element is not automatically added to the DOM and must be attached using methods like appendChild().
+
+Example:
+javascript
+Copy code
+const newButton = document.createElement("button");
+
+
+The element.innerHTML Property:
+The element.innerHTML property provides access to the HTML markup that makes up the contents of an element.
+It can be used to get the current value of an element's contents or to assign new HTML content to it.
+Example:
+html
+Copy code
+<box>
+  <p>Hello there!</p>
+</box>
+<script>
+  const box = document.querySelector('box');
+  console.log(box.innerHTML); // Output: '<p>Hello there!</p>'
+  box.innerHTML = '<p>Goodbye</p>'; // Reassigning the value
+</script>
+
+
+The document Object:
+The document object in JavaScript provides a way to access and interact with the HTML document and its elements.
+It can be used for various purposes, such as referencing the <body> element, creating new HTML elements, and more.
+
+Example:
+javascript
+Copy code
+const body = document.body; // Reference to the <body> element
+The document.getElementById() Method:
+
+The document.getElementById() method returns the element that has the specified ID attribute.
+It is used to retrieve a reference to a specific element based on its ID value.
+Example:
+javascript
+Copy code
+const demoElement = document.getElementById('demo'); // Reference to the element with ID 'demo'
+
+
+The querySelector() Method:
+The querySelector() method selects the first element that matches a specified CSS selector.
+It can be used on the document object to search the entire document or on a specific element to search its descendants.
+
+Example:
+javascript
+Copy code
+// Select the first <div> element
+const firstDiv = document.querySelector('div');
+
+// Select the first element with class 'button' inside '.main-navigation'
+const navMenu = document.getElementById('main-navigation');
+const firstButtonChild = navMenu.querySelector('.button');
+
+
+The document.body Object:
+document.body returns a reference to the contents of the <body> HTML element of a document.
+It represents the visible contents of the page and can be accessed or modified using the returned reference.
+
+Example:
+javascript
+Copy code
+const bodyContent = document.body; // Reference to the contents of the <body> element
+
+
+The element.onclick Property:
+The element.onclick property sets a function to be executed when the specified element is clicked.
+It can be used to define an event handler for click events on an element.
+
+Example:
+html
+Copy code
+<button id="addItem">Add Item</button>
+<script>
+  const element = document.getElementById('addItem');
+  element.onclick = function() { 
+    // Code to execute when the element is clicked
+  };
+</script>
+
+The element.appendChild() Method:
+The element.appendChild() method appends a new child element as the last child of the specified parent element.
+It is used to add new elements to the DOM tree.
+
+Example:
+javascript
+Copy code
+const parentElement = document.getElementById('list');
+const newElement = document.createElement('li');
+parentElement.appendChild(newElement);
+The element.style Property:
+
+The element.style property is used to access or set the CSS style rules of an element.
+It allows manipulation of an element's style attributes directly through JavaScript.
+
+Example:
+javascript
+Copy code
+const blueElement = document.getElementById('colorful-element');
+blueElement.style.backgroundColor = 'blue'; // Setting the background color to blue
+Event Handling: .addEventListener() and .removeEventListener():
+
+The .addEventListener() method is used to attach an event handler to a specific event on an event target.
+It allows multiple events to be added without overwriting existing ones.
+The .removeEventListener() method stops listening for a specific event on an event target, removing the associated event handler.
+
+Examples:
+javascript
+Copy code
+eventTarget.addEventListener("event", eventHandlerFunction);
+eventTarget.removeEventListener("event", eventHandlerFunction);
+Event Handler:
+
+An event handler is a function that runs in response to a triggered event, such as a keystroke or mouse movement.
+Event handlers are registered to an element and specify the actions to be taken when the event occurs.
+They are typically associated with event listeners.
+
+Example:
+javascript
+Copy code
+element.onclick = function(event) {
+  // Event handling code goes here
+};
+
+Event Object:
+An event object is passed to event handler functions and contains information about the triggered event.
+It stores details such as the event target, event type, and other properties related to the event.
+
+Example:
+javascript
+Copy code
+element.onclick = function(event) {
+  console.log(event.target); // Accessing the event target
+  console.log(event.type); // Accessing the event type
+};
+
+
+Keyboard Events:
+Keyboard events are triggered by user interactions with the keyboard.
+Common keyboard events include keydown, keyup, and keypress.
+They provide information about the pressed key, allowing actions to be performed accordingly.
+
+Example:
+javascript
+Copy code
+element.addEventListener('keydown', function(event) {
+  console.log(event.key); // Accessing the key that was pressed
+});
+
+
+JavaScript Events:
+JavaScript events are triggered by specific actions or changes on a webpage, such as clicks, mouse movements, or page loading.
+They are part of the JavaScript API provided by web browsers and allow dynamic manipulation of the document.
+
+Example:
+javascript
+Copy code
+$('#button').on('click', function(event) {
+  // Event handling code goes here
+});
+
+
+JS Event Handlers:
+JavaScript event handlers are functions that respond to events triggered by user interactions or browser actions.
+They are registered to an event target (element) and associated with a specific event type.
+The on prefix followed by the event name is used to define an event handler.
+
+Example:
+javascript
+Copy code
+document.getElementById('test').onclick = function(event) {
+  // Event handling code goes here
+};
+
+
+Mouse Events:
+Mouse events are fired when a user interacts with the mouse, such as clicking or moving it.
+Common mouse events include click, mouseout, mouseover, mousedown, and mouseup.
+They allow actions to be performed based on user interactions with the mouse.
+
+Example:
+javascript
+Copy code
+element.addEventListener('click', function(event) {
+  // Event handling code goes here
+});
+
+
+Handlebars.compile():
+The Handlebars.compile() function is used to create a templating function in Handlebars.js.
+It takes a template string with expressions and returns a function that can interpolate values into the template.
+The resulting function can be called with an object containing values to be substituted into the expressions, generating HTML.
+
+Example:
+javascript
+Copy code
+const template = '<span>{{greetingMsg}}</span>';
+const templateFunction = Handlebars.compile(template);
+const html = templateFunction({ greetingMsg: 'Greetings from the club!' });
+console.log(html); // <span>Greetings from the club!</span>
+
+
+Handlebars {{each}} Block Helper:
+The Handlebars {{each}} block helper is used to iterate over an array in Handlebars.js.
+It allows rendering a block of code for each item in the array.
+Inside the block, the {{this}} placeholder represents the current item being iterated.
+
+Example:
+javascript
+Copy code
+const template = `
+<ul>
+  {{#each serialList}}
+    <li>{{this}}</li>
+  {{/each}}
+</ul>`;
+
+const templateFunction = Handlebars.compile(template);
+const htmlStr = templateFunction({ serialList: [202, 204, 338, 342, 400] });
+console.log(htmlStr);
+/*
+Output:
+<ul>
+  <li>202</li>
+  <li>204</li>
+  <li>338</li>
+  <li>342</li>
+  <li>400</li>
+</ul>
+*/
+
+
+Handlebars Block Helpers:
+Handlebars provides built-in block helpers that allow embedding HTML or expressions in between helper expression tags.
+Block helpers start with a # before a keyword and end with a / followed by the same keyword.
+Example:
+javascript
+Copy code
+{{#blockName}}
+  Block text content
+  <p>An HTML paragraph element</p>
+{{/blockName}}
+
+
+The Handlebars.js JavaScript Library:
+Handlebars.js is a JavaScript library used to create reusable webpage templates.
+It combines HTML, text, and expressions to generate dynamic content.
+Expressions in Handlebars templates are surrounded by double curly braces {{}}.
+
+Example:
+javascript
+Copy code
+<script id="spaceCraft" type="text/x-handlebars-template">
+  <p>{{spacecraftName}} landed the first human on the Moon.</p>
+</script>
+
+
+Handlebars.js and the <script> Element:
+The <script> element can be used to contain Handlebars.js template text and expressions.
+It requires a type attribute with a value of text/x-handlebars-template.
+This allows writing Handlebars.js templates directly in an HTML document.
+
+Example:
+javascript
+Copy code
+<script id="handlebars-template" type="text/x-handlebars-template">
+  <p>Hello {{loggedInUser}}</p>
+</script>
+
+
+Handlebars {{if}} Block Helper:
+The Handlebars {{if}} block helper conditionally renders a block of code based on a condition.
+The block is rendered only if the condition is truthy; otherwise, it is skipped.
+
+Example:
+javascript
+Copy code
+const template = `<h1>
+{{#if quotaFull}}
+  Please come back tomorrow.
+{{/if}}
+</h1>`;
+
+const templateFunction = Handlebars.compile(template);
+const completedHtml = templateFunction({ quotaFull: true });
+console.log(completedHtml); // <h1>Please come back tomorrow.</h1>
+
+
+The Handlebars {{else}} Expression:
+The Handlebars {{else}} expression can be used inside an {{if}} block to specify the code to be rendered when the previous condition(s) are falsy.
+It allows for an alternative code block to be rendered in such cases.
+
+Example:
+javascript
+Copy code
+{{#if condition}}
+  Code to execute if condition is truthy
+{{else}}
+  Code to execute if condition is falsy
+{{/if}}
